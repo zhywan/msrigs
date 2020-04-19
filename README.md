@@ -1,5 +1,5 @@
 # SIRIGame
-Surname Inference and Re-Identification Game (SIRIGame)
+Surname Inference and Re-Identification Game Solver (SIRIGameS)
 
 Description:
 
