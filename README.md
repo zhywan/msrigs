@@ -1,4 +1,4 @@
-# SIRIGame
+# SIRIGaS
 Surname Inference and Re-Identification Game Solver (SIRIGaS)
 
 Description:
@@ -23,9 +23,9 @@ Other published articles essential for understanding the software are as follows
 
 Software Disclaimer:
 
-SIRIGame is a free software; you can redistribute it or modify it under the terms of the GNU General Public License. 
+SIRIGaS is a free software; you can redistribute it or modify it under the terms of the GNU General Public License. 
 
-SIRIGame is distributed in the hope that is will be useful, but without any warranty. To use SIRIGame in your research, please cite our journal paper uner review mentioned above.
+SIRIGaS is distributed in the hope that is will be useful, but without any warranty. To use SIRIGaS in your research, please cite our journal paper uner review mentioned above.
 
 Authors:
 
