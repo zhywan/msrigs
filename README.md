@@ -1,4 +1,4 @@
-# SIRIGaS
+# MSRIGS
 Multi-Stage Re-Identification Game Solver (MSRIGS)
 
 ## Description:
