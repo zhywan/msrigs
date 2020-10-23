@@ -1,5 +1,4 @@
-# MSRIGS
-Multi-Stage Re-Identification Game Solver (MSRIGS)
+# Multi-Stage Re-Identification Game Solver (MSRIGS)
 
 ## Description:
 
