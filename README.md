@@ -1,5 +1,5 @@
 # SIRIGaS
-Surname Inference and Re-Identification Game Solver (SIRIGaS)
+Multi-Stage Re-Identification Game Solver (MSRIGS)
 
 ## Description:
 
@@ -23,9 +23,9 @@ Other published articles essential for understanding the software are as follows
 
 ## Software Disclaimer:
 
-SIRIGaS is a free software; you can redistribute it or modify it under the terms of the GNU General Public License. 
+MSRIGS is a free software; you can redistribute it or modify it under the terms of the GNU General Public License. 
 
-SIRIGaS is distributed in the hope that is will be useful, but without any warranty. To use SIRIGaS in your research, please cite our journal paper uner review mentioned above.
+MSRIGS is distributed in the hope that is will be useful, but without any warranty. To use it in your research, please cite our journal paper uner review mentioned above.
 
 ## Authors:
 
