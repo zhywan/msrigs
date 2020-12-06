@@ -258,8 +258,9 @@ if __name__ == '__main__':
             if log_opt_strategy:
                 array_attack[index] = opt_attack
                 list_opt_strategy.append(opt_strategy)
-            # f.write(str(j)+': '+str(s[4:(m_g+4)])+' '+str(opt_strategy)+' '+str(opt_payoff)+'\n')
-            f.write(str(j) + ': ' + str(opt_strategy) + ' {:f} {} {}\n'.format(opt_payoff, opt_attack, opt_success_rate))
+            f.write(
+                '{}-{}: {} {:f} {:d} {}\n'.format(i, j, np.array(list(map(int, opt_strategy))), opt_payoff, opt_attack,
+                                                  opt_success_rate))
         if not save_iter and i < (start_iter + n_iter - 1):  # not the last iteration and not in save-iteration mode
             continue
         if save_iter:
