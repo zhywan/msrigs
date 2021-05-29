@@ -1,6 +1,6 @@
-# Multi-Stage Re-Identification (MSRI) Game Solver (GS) v1.0
+# Multi-Stage Re-Identification (MSRI) Game Solver (GS) v1.1
 # Component: Functions for MSRIGS
-# © Oct 2018-2020 Zhiyu Wan, HIPLAB, Vanderbilt University
+# © Oct 2018-2021 Zhiyu Wan, HIPLAB, Vanderbilt University
 # Compatible with python 3.8.5. Package dependencies: Numpy 1.19.1, Scikit-learn 0.23.2, Pandas 1.1.3, Matplotlib 3.3.1,
 # Seaborn 0.11.0, and SciPy 1.5.2
 # Update history:
@@ -43,11 +43,30 @@
 # Oct 15, 2020: Exchange the orders of no-attack and one-stage game.
 # Oct 17, 2020: Add optimal defense function for one-for-all setting.
 # Oct 21, 2020: Convert data types to save memory.
+# March 31, 2021: Allow customized strategy
+# April 4, 2021: Re-design the utility function
+# April 21, 2021: Re-Re-design the utility function
+# April 22, 2021: Save the right success rate
+
 import numpy as np
 import math
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import linear_model
 from sklearn import svm
+
+
+def gini(array):
+    """Calculate the Gini coefficient of a numpy array."""
+    # based on bottom eq: http://www.statsdirect.com/help/content/image/stat0206_wmf.gif
+    # from: http://www.statsdirect.com/help/default.htm#nonparametric_methods/gini.htm
+    array = array.flatten()  # all values are treated equally, arrays must be 1d
+    if np.amin(array) < 0:
+        array -= np.amin(array)  # values cannot be negative
+    array += 0.0000001  # values cannot be 0
+    array = np.sort(array)  # values must be sorted
+    index = np.arange(1, array.shape[0]+1)  # index per array element
+    n = array.shape[0]  # number of array elements
+    return (np.sum((2 * index - n - 1) * array)) / (n * np.sum(array))  # Gini coefficient
 
 
 def dec2bin_np_array(x, m):
@@ -126,7 +145,7 @@ def conf_score_solo(x, mu, T_Max, inv_Ne):
         p1 = math.exp((-1) * t * (inv_Ne + 2 * z) + y)
         P1.append(p1)
         sump1 += p1
-        p3 = inv_Ne * math.pow((1-inv_Ne), t-1) # inv_Ne * math.exp(-inv_Ne * t)
+        p3 = inv_Ne * math.pow((1-inv_Ne), t-1)  # inv_Ne * math.exp(-inv_Ne * t)
         P3.append(p3)
         sump3 += p3
     delta = 0
@@ -404,10 +423,10 @@ def attack_SIG(s_feature, I_feature, loss, cost, inferred_surname, p, theta_p, o
             success_rate = 1 / group_size * p
         payoff = loss * success_rate - cost  # expected payoff
         if payoff > payoff1:  # use age, state and inferred surname
+            if inferred_surname == s_feature[-1]:  # s_real_name = s_feature[-1]
+                real_success_rate = 1 / group_size
             if payoff > 0:
                 attack = True
-                if inferred_surname == s_feature[-1]:  # s_real_name = s_feature[-1]
-                    real_success_rate = 1 / group_size
                 real_payoff = loss * real_success_rate - cost  # not expected_payoff
             else:
                 real_payoff = 0
@@ -421,9 +440,13 @@ def attack_SIG(s_feature, I_feature, loss, cost, inferred_surname, p, theta_p, o
 
 def optimal_defense(s, I, G, w_entropy, m_g, dic_attack, dic_surname, loss, cost, scenario,
                     total_utility, theta_p, over_confident, mu, method, tol, dic_dist, dic_score_solo, dic_score,
-                    T_Max, inv_Ne, participation_rate, random_mask_rate, algorithm, pruning, I_selection):
-    if scenario == 3:  # scenario 3: random masking
-        random_strategy = np.random.choice([False, True], m_g + 2, p=[1 - random_mask_rate, random_mask_rate])
+                    T_Max, inv_Ne, participation_rate, random_mask_rate, algorithm, pruning, I_selection,
+                    custom_strategy, utility_boost):
+    if np.floor(scenario) == 3:  # scenario 3: random masking, or scenario 3.1: customized masking
+        if scenario == 3:
+            random_strategy = np.random.choice([False, True], m_g + 2, p=[1 - random_mask_rate, random_mask_rate])
+        else:  # scenario == 3.1 or else
+            random_strategy = custom_strategy
         random_demo = random_strategy[0:2]
         random_geno = random_strategy[2:]
         (inferred_surname, p) = surname_inference(s, G, m_g, random_geno, mu[0:m_g], method, tol, dic_dist,
@@ -431,7 +454,7 @@ def optimal_defense(s, I, G, w_entropy, m_g, dic_attack, dic_surname, loss, cost
         (success_rate, attack, attacker_payoff, success_rate1, attack1, attacker_payoff1) = \
             attack_SIG(s[I_selection], I[:, I_selection], loss, cost, inferred_surname, p, theta_p, over_confident, random_demo)
         defender_loss = attacker_payoff + attack * cost
-        utility = np.sum(np.dot(w_entropy[0:(m_g + 2)], random_strategy)) / np.sum(w_entropy[0:(m_g + 2)])
+        utility = min(utility_boost * np.sum(np.dot(w_entropy[0:(m_g + 2)], random_strategy)) / np.sum(w_entropy[0:(m_g + 2)]), 1)
         defender_benefit = total_utility * utility  # compute the benefit
         defender_payoff = defender_benefit - defender_loss
         optimal_attack = attack
@@ -468,7 +491,7 @@ def optimal_defense(s, I, G, w_entropy, m_g, dic_attack, dic_surname, loss, cost
     if scenario == 1 or scenario == 7:  # scenario 1: no genomic data sharing, or new scenario 7: one-stage masking game
         if scenario == 1:
             no_geno_strategy = np.concatenate((np.ones(2).astype(bool), np.zeros(m_g).astype(bool)), axis=None)
-            utility = np.sum(np.dot(w_entropy[0:(m_g + 2)], no_geno_strategy)) / np.sum(w_entropy[0:(m_g + 2)])
+            utility = min(utility_boost * np.sum(np.dot(w_entropy[0:(m_g + 2)], no_geno_strategy)) / np.sum(w_entropy[0:(m_g + 2)]), 1)
             optimal_strategy = no_geno_strategy
         else:
             utility = 1
@@ -546,7 +569,7 @@ def optimal_defense(s, I, G, w_entropy, m_g, dic_attack, dic_surname, loss, cost
                 defender_loss = attacker_payoff + attack * cost
                 if scenario == 7:
                     defender_loss = attacker_payoff1 + attack1 * cost
-                utility = np.sum(np.dot(w_entropy[0:(m_g + 2)], child_strategy)) / np.sum(w_entropy[0:(m_g + 2)])
+                utility = min(utility_boost * np.sum(np.dot(w_entropy[0:(m_g + 2)], child_strategy)) / np.sum(w_entropy[0:(m_g + 2)]), 1)
                 defender_benefit = total_utility * utility  # compute the benefit
                 defender_payoff = defender_benefit - defender_loss
                 if defender_payoff > child_optimal_payoff or \
@@ -628,7 +651,7 @@ def optimal_defense(s, I, G, w_entropy, m_g, dic_attack, dic_surname, loss, cost
             defender_loss = attacker_payoff + attack * cost
             if scenario == 7:
                 defender_loss = attacker_payoff1 + attack1 * cost
-            utility = np.sum(np.dot(w_entropy[0:(m_g + 2)], current_strategy)) / np.sum(w_entropy[0:(m_g + 2)])
+            utility = min(utility_boost * np.sum(np.dot(w_entropy[0:(m_g + 2)], current_strategy)) / np.sum(w_entropy[0:(m_g + 2)]), 1)
             defender_benefit = total_utility * utility  # compute the benefit
             defender_payoff = defender_benefit - defender_loss
             if defender_payoff > optimal_payoff or \
