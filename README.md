@@ -22,7 +22,7 @@ Other published articles essential for understanding the software are as follows
 
 ## Software Structure:
 
-### Large-scale population simulation
+### Preprocessing -- Large-scale population simulation
 
 Source code file:
 
@@ -48,7 +48,7 @@ Supplementary files:
             
             /Population_Simulation/state_stats_info.xlsx
 
-### K-anonymization Baseline
+### Preprocessing -- *k*-Anonymization baseline
 
 Source code file:
 
