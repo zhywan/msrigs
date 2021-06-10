@@ -25,199 +25,322 @@ Other published articles essential for understanding the software are as follows
 ### Large-scale population simulation
 
 Source code file:
+
             /Population_Simulation/Population_Simulation_Final.ipynb
 
 Data files:
+
             /Population_Simulation/Birth_Age_statistics.txt
+            
             /Population_Simulation/census_lastnames_freq.txt
+            
             /Population_Simulation/Income_statistics.txt
+            
             /Population_Simulation/Pop_Increase_stats.txt
+            
             /Population_Simulation/State_statistics.txt
 
 Supplementary files:
+
             /Population_Simulation/census_lastnames_info_top1000.csv
+            
             /Population_Simulation/state_stats_info.csv
+            
             /Population_Simulation/state_stats_info.xlsx
 
 ### K-anonymization Baseline
 
 Source code file:
+
             /DemoKAnonymization/src/edu/vanderbilt/mc/hiplab/demokanonymization/DemoKAnonymization.java
 
 Data files:
             /DemoKAnonymization/exp/2058/data/hierarchy/hierarchy_State.csv
+            
             /DemoKAnonymization/exp/2058/data/hierarchy/hierarchy_YOB.csv
+            
             /DemoKAnonymization/exp/2058/data/hierarchy/hierarchy_STR1.csv
+            
             ...
+            
             /DemoKAnonymization/exp/2058/data/hierarchy/hierarchy_STR12.csv
+            
             /DemoKAnonymization/exp/2058/data/weighted_entropy/i0.csv
+            
             ...
+            
             /DemoKAnonymization/exp/2058/data/weighted_entropy/i99.csv
+            
             /DemoKAnonymization/exp/2058/data/target_data/i0.csv
+            
             ...
+            
             /DemoKAnonymization/exp/2058/data/target_data/i99.csv
 
 Output files:
+
             /DemoKAnonymization/exp/2058/output_strategy/i0.csv
+            
             ...
+            
             /DemoKAnonymization/exp/2058/output_strategy/i99.csv
 
 Library package file (not included, accessible from https://arx.deidentifier.org/downloads/):
+
             /DemoKAnonymization/lib/libarx-3.9.0.jar
 
 ### Experiments based on a large-scale simulated population
 
 Source code files:
+
             /msrigs_simulation_mainexperiment.py
+            
             /msrigs_functions.py
 
 Data files:
+
             /data/simu/birth_year1.txt
+            
             /data/simu/birth_year2.txt
+            
             /data/simu/birth_year3.txt
+            
             /data/simu/ped1.txt
+            
             /data/simu/ped2.txt
+            
             /data/simu/ped3.txt
+            
             /data/simu/state1.txt
+            
             /data/simu/state2.txt
+            
             /data/simu/state3.txt
+            
             /data/simu/surname1.txt
+            
             /data/simu/surname2.txt
+            
             /data/simu/surname3.txt
 
 Visualization code files:
+
             /msrigs_drawfig2_mainresult.py
+            
             /msrigs_drawfig3_optimalstrategies.py
 
 ### Sensitivity analysis on parameters based on simulated datasets
 
 Source code files:
+
             /msrigs_simulation_sensitivityanalysis_mchanging.py
+            
             /msrigs_simulation_sensitivityanalysis_missinglevelchanging.py
+            
             /msrigs_simulation_sensitivityanalysis_thetachanging.py
+            
             /msrigs_simulation_sensitivityanalysis_ngchanging.py
+            
             /msrigs_simulation_sensitivityanalysis_nichanging.py
+            
             /msrigs_simulation_sensitivityanalysis_losschanging.py
+            
             /msrigs_simulation_sensitivityanalysis_benefitchanging.py
+            
             /msrigs_simulation_sensitivityanalysis_costchanging.py
+            
             /msrigs_functions.py
 
 Data files:
+
             /data/simu/birth_year1.txt
+            
             /data/simu/birth_year2.txt
+            
             /data/simu/birth_year3.txt
+            
             /data/simu/ped1.txt
+            
             /data/simu/ped2.txt
+            
             /data/simu/ped3.txt
+            
             /data/simu/state1.txt
+            
             /data/simu/state2.txt
+            
             /data/simu/state3.txt
+            
             /data/simu/surname1.txt
+            
             /data/simu/surname2.txt
+            
             /data/simu/surname3.txt
 
 Visualization code files:
+
             /msrigs_drawfig4_sensitivityanalysis.py
 
 ### Sensitivity analysis on settings based on simulated datasets
 
 Source code files:
+
             /msrigs_simulation_homogeneityconstraint.py
+            
             /msrigs_simulation_mainexperiment.py (by changing parameters)
+            
             /msrigs_functions.py
 
 Data files:
+
             /data/simu/birth_year1.txt
+            
             /data/simu/birth_year2.txt
+            
             /data/simu/birth_year3.txt
+            
             /data/simu/ped1.txt
+            
             /data/simu/ped2.txt
+            
             /data/simu/ped3.txt
+            
             /data/simu/state1.txt
+            
             /data/simu/state2.txt
+            
             /data/simu/state3.txt
+            
             /data/simu/surname1.txt
+            
             /data/simu/surname2.txt
+            
             /data/simu/surname3.txt
 
 Visualization code file:
+
             /msrigs_drawfig4_sensitivityanalysis.py
 
 ### Robustness analysis on settings based on simulated datasets
 
 Source code files:
+
             /msrigs_simulation_robustanalysis_cost.py
+            
             /msrigs_simulation_robustanalysis_ng.py
+            
             /msrigs_simulation_robustanalysis_ni.py
+            
             /msrigs_functions.py
 
 Data files:
+
             /data/simu/birth_year1.txt
+            
             /data/simu/birth_year2.txt
+            
             /data/simu/birth_year3.txt
+            
             /data/simu/ped1.txt
-            /data/simu/ped2.txt
+            
+            /data/simu/ped2.txt            
+            
             /data/simu/ped3.txt
+            
             /data/simu/state1.txt
+            
             /data/simu/state2.txt
+            
             /data/simu/state3.txt
+            
             /data/simu/surname1.txt
+            
             /data/simu/surname2.txt
+            
             /data/simu/surname3.txt
 
 Visualization code file:
+
             /msrigs_drawfigs5_robustanalysis.py
 
 ### Experiments based on Craig Venter’s data and the Ysearch dataset
 
 Source code files:
+
             /msrigs_realdata.py
+            
             /msrigs_functions.py
 
 Data files:
+
             /data/Venter.txt
+            
             /data/Ysearch.txt
+            
             /data/Ysearch_ID.txt
+            
             /data/MU.txt
 
 Visualization code file:
+
             /msrigs_drawfigs7_venterstrategies.py
 
 Preprocessing code files (supplementary):
+
             /msrigs_realdata_sanitization_substitution.py
+            
             /msrigs_realdata_sanitization_shuffle.py
 
 ### Usefulness and fairness analyses
 
 Source code files:
+
             /msrigs_simulation_analysis_usefulness_and_fairness.py
+            
             /msrigs_functions.py
 
 Visualization code files:
+
             /msrigs_drawfigs1_usefulness.py
+            
             /msrigs_drawfigs2_fairness_wrt_usefulness.py
 
 ### Sensitivity analysis on the minority-support factor based on simulated datasets
 
 Source code files:
+
             /msrigs_simulation_mainexperiment.py (by changing parameters)
+            
             /msrigs_functions.py
 
 Data files:
+
             /data/simu/birth_year1.txt
+            
             /data/simu/birth_year2.txt
+            
             /data/simu/birth_year3.txt
+            
             /data/simu/ped1.txt
+            
             /data/simu/ped2.txt
+            
             /data/simu/ped3.txt
+            
             /data/simu/state1.txt
+            
             /data/simu/state2.txt
+            
             /data/simu/state3.txt
+            
             /data/simu/surname1.txt
+            
             /data/simu/surname2.txt
+            
             /data/simu/surname3.txt
 
 Visualization code file:
+
             /msrigs_drawfigs6_sensitivityminoritysupport.py
 
 ## Software Disclaimer:
