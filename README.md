@@ -129,7 +129,7 @@ Visualization code files:
             
             /msrigs_drawfig3_optimalstrategies.py
 
-### Sensitivity analysis on parameters based on simulated datasets
+### Sensitivity analysis on eight parameters based on simulated datasets
 
 Source code files:
 
@@ -181,7 +181,7 @@ Visualization code files:
 
             /msrigs_drawfig4_sensitivityanalysis.py
 
-### Sensitivity analysis on settings based on simulated datasets
+### Sensitivity analysis on three settings based on simulated datasets
 
 Source code files:
 
@@ -221,7 +221,7 @@ Visualization code file:
 
             /msrigs_drawfig4_sensitivityanalysis.py
 
-### Robustness analysis on settings based on simulated datasets
+### Robustness analysis on three parameters based on simulated datasets
 
 Source code files:
 
