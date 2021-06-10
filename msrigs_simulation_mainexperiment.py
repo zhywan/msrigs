@@ -46,7 +46,7 @@
 import numpy as np
 import time
 import pandas as pd
-import MSRIGS_Functions as sf
+import msrigs_functions as sf
 import os.path
 import pickle
 import sys
