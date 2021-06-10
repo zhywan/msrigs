@@ -2,23 +2,23 @@
 
 ## Description:
 
-This program finds the best solution for sharing genomic attributes, Y-chromosome short tandem repeats (Y-STRs), under an economically motivated adversary's surname inference and re-identification two-stage attack based on a Stackelberg game model named Multi-Stage Re-Identification Game (MSRIG). The attack is introduced by Gymrek et al. in 2013 [1]. In the first stage of the attack, the adversary infers the surname of a target from the target's Y-STR data with the help of a published genetic geneaolgy dataset (e.g., Ysearch). In the second stage of the attack, the adversary re-identifies the target with the help of a public demographic dataset (e.g., a voter registration list) by linking upon the inferred surname and other demographic attributes (e.g., year of birth and state of residence).
+This program finds the best solution for sharing genomic attributes, Y-chromosome short tandem repeats (Y-STRs), under an economically motivated adversary's surname inference and re-identification two-stage attack based on a Stackelberg game model named Multi-Stage Re-Identification Game (MSRIG). The attack is introduced by Gymrek et al. in 2013 [1]. In the first stage of the attack, the adversary infers the surname of a target from the target's Y-STR data with the help of a published genetic genealogy dataset (e.g., Ysearch). In the second stage of the attack, the adversary re-identifies the target with the help of a public demographic dataset (e.g., a voter registration list) by linking upon the inferred surname and other demographic attributes (e.g., year of birth and state of residence).
 
-The game theoretic protection model is based upon Wan et al.'s Re-identification Game introduced in 2015 [2] and Wan et al.'s Genomic Privacy Game introduced in 2017 [3]. Two players in the game are a data subject and an adversary. The adversary's strategy is either to attack or not to attack, for each target. The data subject's strategy space is dependent upon specific scenarios in consideration. Two game scenarios are mainly considered in this model: the opt-in game scenario and the masking game scenario. In the opt-in game scenario, we assume that the data subject's strategy is either to share the entire data reocrd or not. In the masking game scenario, we assume that the data subject can decide whether to share or not for each attribute in the data record.
+The game theoretic protection model is based upon Wan et al.'s Re-identification Game introduced in 2015 [2] and Wan et al.'s Genomic Privacy Game introduced in 2017 [3]. Two players in the game are a data subject and an adversary. The adversary's strategy is either to attack or not to attack, for each target. The data subject's strategy space is dependent upon specific scenarios in consideration. Two game scenarios are mainly considered in this model: the opt-in game scenario and the masking game scenario. In the opt-in game scenario, we assume that the data subject's strategy is either to share the entire data record or not. In the masking game scenario, we assume that the data subject can decide whether to share or not for each attribute in the data record.
 
 ## References:
 
 This code is partially based on our journal paper: 
 
-[0] Zhiyu Wan, Yevgeniy Vorobeychik, Weiyi Xia, Yongtai Liu, Myrna Wooders, Jia Guo, Zhijun Yin, Ellen Wright Clayton, Murat Kantarcioglu, and Bradley Malin. "Using game theory to thwart multi-stage privacy intrusions when sharing data" that is uncer review.
+[0] Z. Wan, Y. Vorobeychik, W. Xia, Y. Liu, M. Wooders, J. Guo, Z. Yin, E. W. Clayton, M. Kantarcioglu, and B. Malin. "Using game theory to thwart multi-stage privacy intrusions when sharing data" (uncer review).
 
 Other published articles essential for understanding the software are as follows:
 
-[1] M. Gymrek, A. L. McGuire, D. Golan, E. Halperin, and Y. Erlich. Identifying personal genomes by surname inference. Science, 339(6117):321–324, 2013
+[1] M. Gymrek, A. L. McGuire, D. Golan, E. Halperin, and Y. Erlich. Identifying personal genomes by surname inference. Science, 339(6117): 321–324, 2013
 
 [2] Z. Wan, Y. Vorobeychik, W. Xia, E. W. Clayton, M. Kantarcioglu, R. Ganta, R. Heatherly, and B. A. Malin. A game theoretic framework for analyzing re-identification risk. PloS one, 10(3): e0120592, 2015.
 
-[3] Z. Wan, Y. Vorobeychik, W. Xia, E. W. Clayton, M. Kantarcioglu, and B. Malin. Expanding Access to Large-Scale Genomic Data While Promoting Privacy: A Game Theoretic Approach. The American Journal of Human Genetics, 100(2):316–322, 2017.
+[3] Z. Wan, Y. Vorobeychik, W. Xia, E. W. Clayton, M. Kantarcioglu, and B. Malin. Expanding Access to Large-Scale Genomic Data While Promoting Privacy: A Game Theoretic Approach. The American Journal of Human Genetics, 100(2): 316–322, 2017.
 
 ## Software Structure:
 
@@ -347,7 +347,7 @@ Visualization code file:
 
 MSRIGS is a free software; you can redistribute it or modify it under the terms of the GNU General Public License. 
 
-MSRIGS is distributed in the hope that is will be useful, but without any warranty. To use it in your research, please cite our journal paper uner review mentioned above.
+MSRIGS is distributed in the hope that it will be useful, but without any warranty. To use it in your research, please cite our journal paper under review (mentioned above).
 
 ## Authors:
 
