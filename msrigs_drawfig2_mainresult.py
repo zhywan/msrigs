@@ -20,7 +20,7 @@ if pruning == 1:
     folder_result += 'pruning/'
 order = [0, 1, 2, 3, 4, 5, 6, 7]  # 0: no protection. 1: no genomic data sharing. 2: random opt-in. 3: random masking.
 # 4: opt-in game. 5: masking game. 6: no-attack masking game. 7: one-stage masking game.
-fig, axes = plt.subplots(2, 1, figsize=(5.25, 10.5), gridspec_kw={'height_ratios': [0.95, 1]})
+fig, axes = plt.subplots(2, 1, figsize=(5.35, 11.4), gridspec_kw={'height_ratios': [0.95, 1]})
 
 # input result data
 payoffs = []
@@ -70,7 +70,7 @@ customPalette = sns.set_palette(sns.color_palette(colors))
 dataset2 = pd.DataFrame({'Average payoff ($)': payoffs, 'Scenario': scenarios})
 sns.violinplot(data=dataset2, x='Scenario', y='Average payoff ($)', scale='width', saturation=1,
                palette=customPalette, gridsize=100, width=0.8, ax=axes[0])  # linewidth=2,
-axes[0].set_xticklabels(axes[0].get_xticklabels(), rotation=45)
+axes[0].set_xticklabels(axes[0].get_xticklabels(), rotation=45, ha="right")
 
 # plot the subfigure 2
 scenario_name = np.array(['No-protection', 'Demographics-only', 'Random opt-in', 'Random masking', 'Opt-in game',
@@ -98,4 +98,4 @@ if algorithm == 0:
 else:
     fig.savefig(folder_result.replace('Violin/m' + str(method), 'Violin_bf') + 'result_payoff_privacy_utility.png',
                 bbox_inches='tight',
-                pad_inches=0.01, transparent=True, dpi=600)
+                pad_inches=0.005, transparent=True, dpi=600)
