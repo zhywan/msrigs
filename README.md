@@ -1,4 +1,5 @@
 # Multi-Stage Re-Identification Game Solver (MSRIGS)
+[![DOI](https://zenodo.org/badge/257110497.svg)](https://zenodo.org/badge/latestdoi/257110497)
 
 ## Description:
 
