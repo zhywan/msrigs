@@ -1,8 +1,8 @@
 cff-version: 1.1.0
 message: "If you use this software, please cite it as below."
 authors:
-- family-names: "Zhiyu"
-  given-names: "Wan"
+- family-names: "Wan"
+  given-names: "Zhiyu"
   orcid: "https://orcid.org/0000-0003-3752-5778"
 title: "zhywan/msrigs: Multi-Stage Re-Identification Game Solver"
 version: v1.1.0
