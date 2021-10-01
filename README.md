@@ -11,7 +11,7 @@ The game theoretic protection model is based upon Wan et al.'s Re-identification
 
 This code is partially based on our journal paper: 
 
-[0] Z. Wan, Y. Vorobeychik, W. Xia, Y. Liu, M. Wooders, J. Guo, Z. Yin, E. W. Clayton, M. Kantarcioglu, and B. Malin. "Using game theory to thwart multi-stage privacy intrusions when sharing data" (uncer review).
+[0] Z. Wan, Y. Vorobeychik, W. Xia, Y. Liu, M. Wooders, J. Guo, Z. Yin, E. W. Clayton, M. Kantarcioglu, and B. Malin. "Using game theory to thwart multi-stage privacy intrusions when sharing data" (under review).
 
 Other published articles essential for understanding the software are as follows:
 
